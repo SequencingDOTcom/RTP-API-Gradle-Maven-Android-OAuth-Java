@@ -40,7 +40,7 @@ You need to follow instructions below if you want to build in and use OAuth logi
 	import com.sequencing.oauth.core.Token;
     ```
     * for authorization you need to specify your application parameters at [AuthenticationParameters](https://github.com/SequencingDOTcom/Maven-OAuth-Java/blob/master/src/main/java/com/sequencing/oauth/config/AuthenticationParameters.java). Authorization plugin use custom url schema which you should define. For example:
-    ```
+    ```java
     AuthenticationParameters parameters = new AuthenticationParameters.ConfigurationBuilder()
                 .withRedirectUri("[your custom url schema]/Default/Authcallback")
                 .withClientId("[your client id]")
@@ -48,7 +48,7 @@ You need to follow instructions below if you want to build in and use OAuth logi
                 .build();
     ```
     * implement [ISQAuthCallback](https://github.com/SequencingDOTcom/Maven-Android-OAuth-Java/blob/master/src/main/java/com/sequencing/androidoauth/core/ISQAuthCallback.java).
-    ```
+    ```java
      /**
      * Callback for handling success authentication
      * @param token token of success authentication
@@ -65,7 +65,7 @@ You need to follow instructions below if you want to build in and use OAuth logi
     * create [SQUIoAuthHandler](https://github.com/SequencingDOTcom/Maven-Android-OAuth-Java/blob/master/src/main/java/com/sequencing/androidoauth/core/SQUIoAuthHandler.java) instance that is handling authentication process
     * register your authentication handler by invoking ```authenticate``` method with view, callback and app configuration
     
-    ```
+    ```java
 	public void authenticate(View viewLogin, final ISQAuthCallback authCallback, AuthenticationParameters parameters);
     ```
 
