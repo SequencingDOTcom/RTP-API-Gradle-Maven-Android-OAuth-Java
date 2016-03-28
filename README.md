@@ -4,7 +4,7 @@
 This repo contains Gradle plugin code for implementing Sequencing.com's OAuth2 authentication for your Android app so that your app can securely access to [Sequencing.com's](https://sequencing.com/) API and app chains.
 
 * oAuth flow is explained [here](https://github.com/SequencingDOTcom/OAuth2-code-with-demo)
-* Example that uses this Gradle is located [here](https://github.com/SequencingDOTcom/OAuth2-code-with-demo/tree/master/android)
+* Example that uses this Gradle module is located [here](https://github.com/SequencingDOTcom/OAuth2-code-with-demo/tree/master/android)
 
 
 Contents
@@ -20,18 +20,18 @@ Contents
 Gradle integration
 ======================================
 
-You need to follow instruction below if you want to build in and use OAuth logic in your existed or new project.
+You need to follow instructions below if you want to build in and use OAuth logic in your existing or new project.
 
-* create a new project in Android Studio or Eclipse
+* create a new Android Gradle based project (i.e. in Android Studio or Eclipse)
 * add gradle dependency
 	* see [gradle guides](https://docs.gradle.org/current/userguide/artifact_dependencies_tutorial.html) 
 	* add dependency into build.gradle file in dependencies section. Here is dependency declaration example:
 	```
 	dependencies {
-   		compile 'com.sequencing:android-oauth:1.0.2' // or compile 'com.sequencing:android-oauth:1.0.+'
+   		compile 'com.sequencing:android-oauth:1.0.2' 
     }
 	```
-* use autherization method(s)
+* integrate autherization functionality
 	* add imports
 	```
     import com.sequencing.androidoauth.core.OAuth2Parameters;
@@ -47,7 +47,7 @@ You need to follow instruction below if you want to build in and use OAuth logic
                 .withClientSecret("[your client secret]")
                 .build();
     ```
-    * define [ISQAuthCallback](https://github.com/SequencingDOTcom/Maven-Android-OAuth-Java/blob/master/src/main/java/com/sequencing/androidoauth/core/ISQAuthCallback.java) callback with these methods:
+    * implement [ISQAuthCallback](https://github.com/SequencingDOTcom/Maven-Android-OAuth-Java/blob/master/src/main/java/com/sequencing/androidoauth/core/ISQAuthCallback.java).
     ```
      /**
      * Callback for handling success authentication
@@ -61,11 +61,13 @@ You need to follow instruction below if you want to build in and use OAuth logic
      */
     void onFailedAuthentication(Exception e);
     ```
-    * create View that will be serve as initial element of authentication chains. It can be Button or other extension of View class. Do not define onClickListener for this View.
-    * create [SQUIoAuthHandler](https://github.com/SequencingDOTcom/Maven-Android-OAuth-Java/blob/master/src/main/java/com/sequencing/androidoauth/core/SQUIoAuthHandler.java) object that will be handle authentication process
+    * create View that will serve as initial element for authentication flow. It can be a Button or an extension of View class. Do not define onClickListener for this View.
+    * create [SQUIoAuthHandler](https://github.com/SequencingDOTcom/Maven-Android-OAuth-Java/blob/master/src/main/java/com/sequencing/androidoauth/core/SQUIoAuthHandler.java) instance that is handling authentication process
     * register your authentication handler by invoking ```authenticate``` method with view, callback and app configuration
     
-    ```public void authenticate(View viewLogin, final ISQAuthCallback authCallback, AuthenticationParameters parameters);```
+    ```
+	public void authenticate(View viewLogin, final ISQAuthCallback authCallback, AuthenticationParameters parameters);
+    ```
 
 
 
