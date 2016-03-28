@@ -33,7 +33,7 @@ You need to follow instructions below if you want to build in and use OAuth logi
 	```
 * integrate autherization functionality
 	* add imports
-	```
+	```java
     import com.sequencing.androidoauth.core.OAuth2Parameters;
 	import com.sequencing.androidoauth.core.ISQAuthCallback;
 	import com.sequencing.androidoauth.core.SQUIoAuthHandler;
