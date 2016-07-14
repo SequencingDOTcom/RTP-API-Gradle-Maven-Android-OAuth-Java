@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.View;
 
 import com.sequencing.androidoauth.activity.LoginSequencingActivity;
+import com.sequencing.oauth.config.AuthenticationParameters;
 
 import java.io.Serializable;
 
@@ -31,11 +32,14 @@ public class SQUIoAuthHandler {
      * Authenticate user and and execute user callback
      * @param viewLogin authentication listener
      * @param authCallback user callback of authentication
+     * @param parameters configuration parameters needed to carry on authentication
+     * against sequencing.com backend
      */
-    public void authenticate(View viewLogin, final ISQAuthCallback authCallback){
+    public void authenticate(View viewLogin, final ISQAuthCallback authCallback, AuthenticationParameters parameters){
         if (authCallback == null)
             throw new RuntimeException();
         this.authCallback = authCallback;
+        OAuth2Parameters.getInstance().setParameters(parameters);
 
         viewLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,6 +50,9 @@ public class SQUIoAuthHandler {
         });
     }
 
+    public void logout() {
+        OAuth2Parameters.getInstance().cleanSequencingOAuth2Client();
+    }
     public static ISQAuthCallback getAuthCallback(){
         return authCallback;
     }

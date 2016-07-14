@@ -28,14 +28,11 @@ public class OAuth2Parameters {
         return instance;
     }
 
+    public void setParameters(AuthenticationParameters parameters) {
+        OAuth2Parameters.instance.parameters = parameters;
+    }
+
     public AuthenticationParameters getAppConfig() {
-        if(parameters == null){
-            parameters = new AuthenticationParameters.ConfigurationBuilder()
-                    .withRedirectUri("authapp://Default/Authcallback")
-                    .withClientId("oAuth2 Demo ObjectiveC")
-                    .withClientSecret("RZw8FcGerU9e1hvS5E-iuMb8j8Qa9cxI-0vfXnVRGaMvMT3TcvJme-Pnmr635IoE434KXAjelp47BcWsCrhk0g")
-                    .build();
-        }
         return parameters;
     }
 
@@ -44,5 +41,9 @@ public class OAuth2Parameters {
             oauth = new DefaultSequencingOAuth2Client(getAppConfig());
         }
         return oauth;
+    }
+
+    public void cleanSequencingOAuth2Client() {
+        oauth = null;
     }
 }

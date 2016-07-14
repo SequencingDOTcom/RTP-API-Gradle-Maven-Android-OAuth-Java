@@ -1,14 +1,38 @@
 apply plugin: 'com.android.library'
 
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'android-oauth'
+
+    publishedGroupId = 'com.sequencing'
+    libraryName = 'Maven-Android-OAuth-Java'
+    artifact = 'android-oauth'
+
+    libraryDescription = 'Sequencing.com\'s OAuth2 as a Maven plugin for Android apps'
+
+    siteUrl = 'https://github.com/SequencingDOTcom/Maven-Android-OAuth-Java'
+    gitUrl = 'https://github.com/SequencingDOTcom/Maven-Android-OAuth-Java.git'
+
+    libraryVersion = '1.0.18'
+
+    developerId = 'Sequencing LLC'
+    developerName = 'Sequencing LLC'
+    developerEmail = 'maven@sequencing.com'
+
+    licenseName = 'MIT License'
+    licenseUrl = 'https://github.com/SequencingDOTcom/Maven-Android-OAuth-Java/blob/master/LICENSE'
+    allLicenses = ["MIT"]
+}
+
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.2"
 
     defaultConfig {
-        minSdkVersion 21
+        minSdkVersion 19
         targetSdkVersion 23
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.9"
     }
     buildTypes {
         release {
@@ -16,6 +40,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    useLibrary 'org.apache.http.legacy'
 }
 
 dependencies {
@@ -23,7 +48,8 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.2.0'
     compile 'org.apache.httpcomponents:httpclient-android:4.3.5.1'
-    compile 'com.sequencing:oauth2-core:1.1'
+    compile 'com.sequencing:oauth2-core:1.6'
     compile 'org.slf4j:slf4j-api:1.7.18'
 }
-//apply from: '../maven_push.gradle'
+//apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+//apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
