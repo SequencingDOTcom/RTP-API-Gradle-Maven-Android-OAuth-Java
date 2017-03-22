@@ -17,5 +17,6 @@
         Please go to the Upload Center at Sequencing.com to upload your genetic data. You\'ll then be able to connect this app with your genetic data.
         Until then, please use one of the following sample files
     </string>
+    <string name="invalid_email">Please, provide a valid email address!</string>
 
 </resources>

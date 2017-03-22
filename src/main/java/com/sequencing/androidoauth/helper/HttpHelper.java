@@ -6,7 +6,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.codec.binary.Base64;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -53,7 +52,7 @@ public class HttpHelper
 	 * @param uri request URL
 	 * @param headers additional request headers
 	 * @param params additional request parameters
-	 * @return String server reply
+	 * @return int server reply
 	 */
 	public static int doPost(String uri, Map<String, String> headers, Map<String, String> params)
 	{
@@ -83,4 +82,60 @@ public class HttpHelper
 	{
 		return HttpClientBuilder.create().build();
 	}
+
+	/**
+	 * Returns result of POST request
+	 * @param uri request URL
+	 * @param headers additional request headers
+	 * @param params additional request parameters
+	 * @return String server reply
+	 */
+	public static String doHttpPost(String uri, Map<String, String> headers, Map<String, String> params)
+	{
+		try {
+			HttpPost post = new HttpPost(uri);
+
+			if (params != null) {
+				List<NameValuePair> pairs = new ArrayList<NameValuePair>();
+				for (Map.Entry<String, String> p : params.entrySet())
+					pairs.add(new BasicNameValuePair(p.getKey(), p.getValue()));
+
+				post.setEntity(new UrlEncodedFormEntity(pairs));
+			}
+
+			return executeRequest(post, headers);
+		}
+		catch (IOException e) {
+			log.debug("Error executing HTTP POST request to " + uri, e);
+		}
+		catch (ParseException e) {
+			log.debug("Error executing HTTP POST request to " + uri, e);
+		}
+		return null;
+	}
+
+	/**
+	 * Basic method for executing HTTP request
+	 * @param request request object
+	 * @param headers additional request headers
+	 * @return String server reply
+	 * @throws IOException
+	 */
+	private static String executeRequest(HttpRequestBase request, Map<String, String> headers) throws IOException
+	{
+		if (headers != null) {
+			for (Map.Entry<String, String> h : headers.entrySet())
+				request.addHeader(h.getKey(), h.getValue());
+		}
+
+		HttpResponse response = getHttpClient().execute(request);
+
+		int statusCode = response.getStatusLine().getStatusCode();
+//		if (statusCode != 200)
+//			throw new RuntimeException(request.getURI() + " returned code " + statusCode + "; " + EntityUtils.toString(response.getEntity()));
+
+		HttpEntity entity = response.getEntity();
+		return EntityUtils.toString(entity);
+	}
+
 }

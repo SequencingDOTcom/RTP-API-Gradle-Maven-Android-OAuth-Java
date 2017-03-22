@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="fs_colorPrimary">#a0d4fa</color>#a0d4fa
-    <color name="fs_colorPrimaryDark">#a0d4fa</color>
+    <color name="fs_colorPrimary">#a0d4fa</color>
+    <color name="fs_colorPrimaryDark">#70c3ff</color>
     <color name="fs_colorAccent">#125688</color>
+    <color name="white_transparent">#E6ffffff</color>
+    <color name="orange">#f6871f</color>
 </resources>

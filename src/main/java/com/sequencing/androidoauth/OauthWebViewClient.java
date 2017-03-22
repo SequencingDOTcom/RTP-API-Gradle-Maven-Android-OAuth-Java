@@ -6,7 +6,6 @@ import android.net.Uri;
 import android.os.StrictMode;
 import android.util.Log;
 import android.view.View;
-import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -51,10 +50,10 @@ public class OauthWebViewClient extends WebViewClient {
     /**
      * Handling error of unsupported scheme
      */
-    @Override
-    public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
-        Log.d(TAG, "Failing Url:" + request.getUrl().toString());
-    }
+//    @Override
+//    public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
+//        Log.d(TAG, "Failing Url:" + request.getUrl().toString());
+//    }
 
     @Override
     public void onReceivedError(WebView view, int errorCode,

@@ -12,7 +12,7 @@ import com.sequencing.androidoauth.core.OAuth2Parameters;
 /**
  * Activity realizes custom web-browser for Sequencing oAuth authentication
  */
-public class LoginSequencingActivity extends  AppCompatActivity {
+public class LoginSequencingActivity extends AppCompatActivity {
 
     /**
      * WebView for handling custom scheme and load data from sequencing.com
@@ -23,7 +23,6 @@ public class LoginSequencingActivity extends  AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sequencing_login);
-
 
         OauthWebViewClient oauthWebViewClient = new OauthWebViewClient(this.getApplicationContext());
 
