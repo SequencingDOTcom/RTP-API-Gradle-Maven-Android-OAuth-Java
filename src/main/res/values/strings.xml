@@ -2,6 +2,7 @@
     <string name="app_name">File selector</string>
     <string name="action_continue">Continue</string>
     <string name="action_info">Info</string>
+    <string name="forgot_password">Forgot your password?</string>
     <string name="file_selector_info">RTP = Real-Time Personalization<sup><small>TM</small></sup>
         \nRTP is as easy as 1, 2, 3…
         \n1) Choose whether you want to use a sample file or your own file.
@@ -19,4 +20,19 @@
     </string>
     <string name="invalid_email">Please, provide a valid email address!</string>
 
+
+    <string name="confirmation_text_title">A confirmation email was just sent from AncestryDNA to your email address:</string>
+    <string name="confirmation_text_title2">The email will be titled "Your request to download AncestryDNA raw data"</string>
+    <string name="confirmation_text_instruction">Please check your email and following the instructions below. \n
+1. Open the email from AncestryDNA \n
+2. Right click on the "Confirm Data Download" button in the email \n
+3. Select "Copy Link" \n
+4. Return to this screen and paste the link below. \n
+Alternatively, you may also click the "Confirm Data Download" button in the email, which will open your internet browser.
+        Copy the entire URL that appears in your browser and then paste it in the field below.
+        The URL will look like this: https://www.ancestry.com/dna/rawDownload/a-long-number-will-appear-here"</string>
+
+    <string name="confirmation_text_short">Please check your email, copy and paste a received confirmation link in the field below:</string>
+    <string name="success_import">Your Ancestry.com data is being securely imported into your Sequencing.com account.
+It will be available within 20 minutes for you to use with apps in the App Market.</string>
 </resources>

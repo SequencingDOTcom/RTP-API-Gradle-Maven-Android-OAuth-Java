@@ -5,4 +5,14 @@
     <color name="fs_colorAccent">#125688</color>
     <color name="white_transparent">#E6ffffff</color>
     <color name="orange">#f6871f</color>
+
+    <color name="colorPrimary">#FFC107</color>
+    <color name="colorPrimaryDark">#FFA000</color>
+    <color name="colorAccent">#FFA000</color>
+    
+    <color name="colorBorderButton">#878991</color>
+    <color name="textColor">#e63a3939</color>
+    <color name="lightGreenColor">#8BC34A</color>
+    <color name="greenColor">#4CAF50</color>
+    <color name="lightBlueColor">#00BCD4</color>
 </resources>

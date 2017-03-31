@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <LinearLayout
+        android:id="@+id/llAncestry"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp"
+        android:background="@drawable/selector_button"
+        android:gravity="center_horizontal"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
+
+        <ImageButton
+            android:id="@+id/btnAncestry"
+            android:layout_width="215dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:background="@drawable/ancestry" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll23AndMe"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/llAncestry"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp"
+        android:background="@drawable/selector_button"
+        android:gravity="center_horizontal"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
+
+        <ImageButton
+            android:id="@+id/btn23"
+            android:layout_width="115dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:background="@drawable/mesmall" />
+    </LinearLayout>
+
+</RelativeLayout>

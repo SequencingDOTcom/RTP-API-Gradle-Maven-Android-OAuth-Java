@@ -47,14 +47,6 @@ public class OauthWebViewClient extends WebViewClient {
         StrictMode.setThreadPolicy(policy);
     }
 
-    /**
-     * Handling error of unsupported scheme
-     */
-//    @Override
-//    public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
-//        Log.d(TAG, "Failing Url:" + request.getUrl().toString());
-//    }
-
     @Override
     public void onReceivedError(WebView view, int errorCode,
                                 String description, String failingUrl) {

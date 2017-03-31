@@ -29,7 +29,7 @@ public class SQUIoAuthHandler {
     }
 
     /**
-     * Authenticate user and and execute user callback
+     * Authenticate user and execute user callback
      * @param viewLogin authentication listener
      * @param authCallback user callback of authentication
      * @param parameters configuration parameters needed to carry on authentication
