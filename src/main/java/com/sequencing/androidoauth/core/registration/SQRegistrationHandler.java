@@ -34,11 +34,6 @@ public class SQRegistrationHandler {
      */
     Activity context;
 
-    /**
-     * User callback of registration reset account
-     */
-    private static SQRegistrationCallback registrationCallback;
-
     private Dialog dialogRegistrationReset;
     private EditText etEmail;
     private ProgressBar spinner;
@@ -54,16 +49,14 @@ public class SQRegistrationHandler {
     }
 
     /**
-     * Registration reset user and execute user callback
+     * Registration/reset account and execute user callback
      *
-     * @param btnRegisterReset     registration reset button
+     * @param view     registration reset button
      * @param clientSecret         client secret
-     * @param registrationCallback user callback of registration new account reset password
      */
-    public void registerResetAccount(Button btnRegisterReset, String clientSecret, SQRegistrationCallback registrationCallback) {
+    public void registerResetAccount(View view, String clientSecret) {
         this.clientSecret = clientSecret;
-        this.registrationCallback = registrationCallback;
-        btnRegisterReset.setOnClickListener(new View.OnClickListener() {
+        view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 initRegistrationDialog();
@@ -289,9 +282,6 @@ public class SQRegistrationHandler {
                     if(dialogRegistrationReset != null){
                         dialogRegistrationReset.dismiss();
                     }
-                    registrationCallback.onSuccessRegistration(message);
-                } else {
-                    registrationCallback.onFailedRegistration(message);
                 }
                 dialog.dismiss();
             }

@@ -29,7 +29,6 @@ public class LoginSequencingActivity extends AppCompatActivity {
         oauthWebView = (WebView) findViewById(R.id.oauthWebView);
         oauthWebView.setWebViewClient(oauthWebViewClient);
         oauthWebView.setVisibility(View.GONE);
-        oauthWebView.getSettings().setUseWideViewPort(true);
         oauthWebView.loadUrl(OAuth2Parameters.getInstance().getAppConfig().getRedirectUri());
     }
 

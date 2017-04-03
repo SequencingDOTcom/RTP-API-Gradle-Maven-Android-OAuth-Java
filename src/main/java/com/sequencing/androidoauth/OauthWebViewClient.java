@@ -73,7 +73,7 @@ public class OauthWebViewClient extends WebViewClient {
     public void onLoadResource(WebView view, String url) {
         if(isSuccess) {
             int statusCode = getStatusCode(OAuth2Parameters.getInstance().getAppConfig().getRedirectUri(),
-                    OAuth2Parameters.getInstance().getAppConfig().getState());
+                    OAuth2Parameters.getInstance().getAppConfig().getState(), OAuth2Parameters.getInstance().getAppConfig().getScope());
 
             if ( statusCode != 200 && statusCode != 301 && statusCode != 302 ) {
                 SQUIoAuthHandler.getAuthCallback().onFailedAuthentication(new NonAuthorizedException());
@@ -129,10 +129,10 @@ public class OauthWebViewClient extends WebViewClient {
         LoginSequencingActivity.getOauthWebView().setVisibility(View.VISIBLE);
     }
 
-    private int getStatusCode(String redirectUri, String state) {
+    private int getStatusCode(String redirectUri, String state, String scope) {
         String url = "https://sequencing.com/oauth2/authorize?" +
                 "redirect_uri=" + redirectUri + "&response_type=code&" +
-                "state=" + state + "&client_id=oAuth2%20Demo%20ObjectiveC&scope=demo";
+                "state=" + state + "&client_id=oAuth2%20Demo%20ObjectiveC&scope=" + scope +"&mobileMode=" + OAuth2Parameters.getInstance().getAppConfig().getMobileMode();
 
         Map<String, String> params = new HashMap<>(4);
         params.put("form_build_id", "form-vzYkPRFb1p46zaT7BZvwEG0UR0gpY_0mKibo9hr3kLI");

@@ -21,8 +21,6 @@ buildscript {
     }
 }
 
-
-
 ext {
     bintrayRepo = 'maven'
     bintrayName = 'android-oauth'
@@ -36,7 +34,7 @@ ext {
     siteUrl = 'https://github.com/SequencingDOTcom/Maven-Android-OAuth-Java'
     gitUrl = 'https://github.com/SequencingDOTcom/Maven-Android-OAuth-Java.git'
 
-    libraryVersion = '1.0.21'
+    libraryVersion = '1.0.22'
 
     developerId = 'Sequencing LLC'
     developerName = 'Sequencing LLC'
@@ -56,7 +54,7 @@ android {
         minSdkVersion 19
         targetSdkVersion 22
         versionCode 3
-        versionName "1.0.21"
+        versionName "1.0.22"
     }
     buildTypes {
         release {
@@ -64,7 +62,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-//    useLibrary 'org.apache.http.legacy'
 }
 
 dependencies {
