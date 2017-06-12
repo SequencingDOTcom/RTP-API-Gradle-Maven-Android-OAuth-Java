@@ -151,5 +151,3 @@ This repo is actively maintained by [Sequencing.com](https://sequencing.com/). E
 Contribute
 ======================================
 We encourage you to passionately fork us. If interested in updating the master branch, please send us a pull request. If the changes contribute positively, we'll let it ride.
-    
-
