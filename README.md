@@ -1,5 +1,4 @@
 # Gradle plugin for quickly adding Sequencing.com's OAuth2 to Android apps coded in Java
-======================================
 
 This repo contains Gradle plugin code for implementing Sequencing.com's OAuth2 authentication for your Android app so that your app can securely access to [Sequencing.com's](https://sequencing.com/) API and app chains.
 
