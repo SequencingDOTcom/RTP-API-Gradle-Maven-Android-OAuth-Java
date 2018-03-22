@@ -1,7 +1,9 @@
 package com.sequencing.androidoauth.activity;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.webkit.JavascriptInterface;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -13,7 +15,6 @@ import com.sequencing.androidoauth.core.connectto.ConnectToSQ;
 import com.sequencing.androidoauth.core.connectto.ConnectToSQParameters;
 import com.sequencing.androidoauth.core.connectto.SQConnectHandler;
 import com.sequencing.androidoauth.helper.AESUtil;
-import com.sequencing.androidoauth.helper.Base64;
 
 import org.apache.commons.codec.binary.Hex;
 
@@ -29,18 +30,41 @@ public class OpenWebViewActivity extends AppCompatActivity {
 
     private static WebView webView;
 
+    public class WebAppInterface {
+
+        Context mContext;
+
+        WebAppInterface(Context c) {
+            mContext = c;
+        }
+
+        /** Show a toast from the web page */
+        @JavascriptInterface
+        public void closeWindow() {
+            finish();
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sequencing_login);
 
         webView = (WebView) findViewById(R.id.oauthWebView);
+        webView.addJavascriptInterface(new WebAppInterface(this), "Android");
         setWebClient();
         webView.loadUrl(getUrl());
     }
 
     private void setWebClient() {
-        webView.setWebViewClient(new WebViewClient());
+        webView.setWebViewClient(new WebViewClient(){
+            @Override
+            public void onPageFinished(WebView view, String url){
+                super.onPageFinished(view, url);
+                view.loadUrl("javascript:" + "document.getElementsByClassName(\"button-confirm-cancel\")[0].onclick=function(){ Android.closeWindow();}");
+            }
+        });
+
         webView.getSettings().setJavaScriptEnabled(true);
         WebChromeClient webClient = new WebChromeClient(){
             public void onCloseWindow(WebView w){
@@ -80,7 +104,7 @@ public class OpenWebViewActivity extends AppCompatActivity {
         String clientId = ConnectToSQParameters.getInstance().getParameters().getClientId();
         String encrypted = AESUtil.encrypt(json, clientId);
         try {
-             encrypted = URLEncoder.encode(encrypted, "UTF-8");
+            encrypted = URLEncoder.encode(encrypted, "UTF-8");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }

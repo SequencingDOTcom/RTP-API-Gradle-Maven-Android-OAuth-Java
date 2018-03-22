@@ -21,6 +21,11 @@ buildscript {
     }
 }
 
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
 ext {
     bintrayRepo = 'maven'
     bintrayName = 'android-oauth'
@@ -34,7 +39,7 @@ ext {
     siteUrl = 'https://github.com/SequencingDOTcom/Maven-Android-OAuth-Java'
     gitUrl = 'https://github.com/SequencingDOTcom/Maven-Android-OAuth-Java.git'
 
-    libraryVersion = '1.0.22'
+    libraryVersion = '1.0.23'
 
     developerId = 'Sequencing LLC'
     developerName = 'Sequencing LLC'
@@ -54,7 +59,7 @@ android {
         minSdkVersion 19
         targetSdkVersion 22
         versionCode 3
-        versionName "1.0.22"
+        versionName "1.0.23"
     }
     buildTypes {
         release {
